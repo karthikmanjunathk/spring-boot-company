@@ -59,7 +59,7 @@ public class CompanyController {
 		Company entity = companyService.getCompanyById(Long id);
 		CompanyDTO companyDTO = companyMapper.getCompanyDTO(entity);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
-		return ResponseEntity.status(HttpStatus.OK).location(location).body(companyDTOList);
+		return ResponseEntity.status(HttpStatus.OK).location(location).body(companyDTO);
 	}
 
 	@GetMapping("/companies/{companyCode}")
@@ -67,7 +67,7 @@ public class CompanyController {
 		Company entity = companyService.getCompanyByCode(Long companyCode);
 		CompanyDTO companyDTO = companyMapper.getCompanyDTO(entity);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
-		return ResponseEntity.status(HttpStatus.OK).location(location).body(companyDTOList);
+		return ResponseEntity.status(HttpStatus.OK).location(location).body(companyDTO);
 	}
 
 	@PostMapping("/companies")
